@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Refactored date examples</title>
+ 
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.1.css"/>
+  <script src="https://code.jquery.com/qunit/qunit-2.9.1.js"></script>
+  <script>
+
+function largestArrangement(array){
+    var combineArrayForMaxValue = (a) => +(a.sort((x, y) => +("" + y + x) - +("" + x + y)).join(''));
+    return [array].map(combineArrayForMaxValue);
+}
+
+  QUnit.test("arrangementtests", function( assert ) {
+    assert.equal(largestArrangement([8, 6, 590, 70]), 8706590)
+    assert.equal(largestArrangement([6, 73, 79, 356, 7]), 797736356)
+    assert.equal(largestArrangement([64, 29, 5, 9, 982, 3]), 9982645329)
+    assert.equal(largestArrangement([3487, 103559, 243]), 3487243103559)
+    assert.equal(largestArrangement([7, 78, 79, 72, 709, 7, 94]), 9479787772709)
+
+  });
+
+  </script>
+</head>
+<body>
+ 
+<div id="qunit"></div>
+ 
+</body>
+</html>
